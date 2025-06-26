@@ -20,7 +20,7 @@ DesktopMatePort is a project that enables running DesktopMate, a Steam applicati
 ### Video Tutorial
 
 A video guide for setting up DesktopMatePort is available here:
-[YouTube Tutorial](https://www.youtube.com/watch?v=<todo>)
+[Youtube Tutorial](https://youtu.be/cnwzLD0SCX8?si=inZ55eI9Eks67bqi)
 
 ### Download
 
