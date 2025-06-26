@@ -1,0 +1,5 @@
+pad_left=150
+pad_right=50
+pad_top=150
+pad_bottom=50
+round_to=300

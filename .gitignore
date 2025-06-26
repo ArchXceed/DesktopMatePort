@@ -1,0 +1,16 @@
+# Ignore self-notes
+notes.txt
+
+# Ignore win magic file, which may cause issues with the window management
+backend/window_magic.json
+
+# Ignore Python cache files
+__pycache__/
+
+backend/DesktopMate/
+
+# Ignore vscode settings
+.vscode/
+
+# We don't ignore the binaries, as they are very small and simplifies a lot the installation process for the user
+

@@ -1,0 +1,1 @@
+x86_64-w64-mingw32-gcc mouse_block.c -o ../mouse_block.exe -mwindows

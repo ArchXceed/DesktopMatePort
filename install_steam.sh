@@ -1,0 +1,14 @@
+cd tmp_install
+export WINEPREFIX=~/.dskmatewine
+wget https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe
+killall wineserver
+winetricks corefonts
+winetricks vcrun2015
+winetricks d3dcompiler_43
+winetricks d3dx9_43
+winetricks dxvk
+winetricks xact
+winetricks openal
+winetricks dotnet48
+winetricks win10
+wine SteamSetup.exe
