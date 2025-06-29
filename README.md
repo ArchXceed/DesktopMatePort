@@ -8,45 +8,43 @@ DesktopMatePort is a project that enables running DesktopMate, a Steam applicati
 - Compatibility with KDE Plasma
 - Support for Hyprland compositor
 - Workarounds for common issues
-- Easy installation process
-- Binaries already in the project (but the source code is still avilable)
+- Automated installation process for multiple distributions
+- Binaries already in the project (but the source code is still available)
 
 ### Requirements
 - KDE Plasma or Hyprland environment
-- All the tutorials are for arch-based system. It works also on Kubuntu or Fedora, but it's not tested and documented
+- Supported distributions: Arch Linux, Debian/Ubuntu, Fedora, openSUSE
 
-## Tutorial:
-
-### Video Tutorial
-
-A video guide for setting up DesktopMatePort is available here:
-[Youtube Tutorial](https://youtu.be/cnwzLD0SCX8?si=inZ55eI9Eks67bqi)
+## Installation
 
 ### Download
 
 ```bash
-sudo pacman -S git
-git clone https://github.com/ArchXceed/DesktopMatePort
+git clone https://github.com/os-guy/DesktopMatePort
+cd DesktopMatePort
 ```
 
-### Prequisite for ./setup.sh:
-#### Arch-Based distros (your NEED yay):
-(yay: [Install YAY](https://github.com/Jguer/yay))
+### Installation
+
+The setup script will automatically detect your distribution and install all required dependencies:
+
 ```bash
-sudo pacman -S winetricks wine-staging python zenity tk wget wmctrl
-yay -S limitcpu
-```
-#### Debian-Based distros (Not tested!)
-```bash
-sudo dpkg --add-architecture i386
-sudo mkdir -pm755 /etc/apt/keyrings
-sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
-sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/$(lsb_release -cs)/winehq-$(lsb_release -cs).sources
-sudo apt update
-sudo apt install --install-recommends winehq-staging winetricks python3 cpulimit zenity tk wmctrl
+./setup.sh
 ```
 
-### Next step: Follow the yt tutorial
+The script supports:
+- Arch-based distributions (with automatic AUR helper detection)
+- Debian/Ubuntu-based distributions
+- Fedora
+- openSUSE
+
+### Uninstallation
+
+To uninstall DesktopMatePort:
+
+```bash
+./uninstall.sh
+```
 
 ## Contact
 If you have any issues, you can contact me via email: lyam.zambaz@edu.vs.ch
