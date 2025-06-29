@@ -70,5 +70,8 @@ I would say... 70% of the code AI generated, but still a lot of human debugging 
 
 You can check out my other project! (Which are not almost Vibe coded). EPTNet, 3000, ...
 
+## Credits
+Scripts are made by OpenSourceGuy
+
 ## Message from the author
 `Miku!`
