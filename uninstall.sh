@@ -99,7 +99,7 @@ if confirm "Would you like to remove packages that were installed by setup.sh? (
                     # Skip empty lines and comments
                     [[ -z "$pkg" || "$pkg" =~ ^# ]] && continue
                     
-                    # Check if package is from official repos
+                    # Check if package is installed
                     if pacman -Qi "$pkg" &>/dev/null; then
                         REGULAR_PKGS+=" $pkg"
                     elif command_exists "pacman" && pacman -Qm "$pkg" &>/dev/null; then
@@ -276,7 +276,75 @@ if confirm "Would you like to remove packages that were installed by setup.sh? (
             ;;
             
         zypper)
-            print_message "yellow" "Package removal for OpenSUSE is not yet implemented."
+            # Read package list for openSUSE systems
+            if [ -f "$SCRIPT_DIR/deps/distros/opensuse/pkglists/opensuse.txt" ]; then
+                print_message "blue" "Removing packages for openSUSE systems..."
+                
+                # Read the package list, excluding comments and empty lines
+                PACKAGES=$(readpkgs "$SCRIPT_DIR/deps/distros/opensuse/pkglists/opensuse.txt")
+                
+                # Create a list of installed packages
+                INSTALLED_PKGS=""
+                
+                while read -r pkg; do
+                    # Skip empty lines and comments
+                    [[ -z "$pkg" || "$pkg" =~ ^# ]] && continue
+                    
+                    # Check if package is installed
+                    if rpm -q "$pkg" &>/dev/null; then
+                        INSTALLED_PKGS+=" $pkg"
+                    fi
+                done <<< "$PACKAGES"
+                
+                # Remove packages
+                if [ -n "$INSTALLED_PKGS" ]; then
+                    print_message "blue" "Removing installed packages..."
+                    if confirm "Remove the following packages? $INSTALLED_PKGS"; then
+                        # Special handling for wine-staging and wine-staging-32bit
+                        if echo "$INSTALLED_PKGS" | grep -q "wine-staging"; then
+                            print_message "blue" "Removing Wine packages..."
+                            sudo zypper remove -y wine-staging wine-staging-32bit || print_message "red" "Failed to remove Wine packages."
+                            
+                            # Remove Wine repository
+                            print_message "blue" "Removing Wine repository..."
+                            sudo zypper removerepo Emulators:Wine || print_message "yellow" "Could not remove Wine repository."
+                            
+                            # Update the package list
+                            INSTALLED_PKGS=$(echo "$INSTALLED_PKGS" | sed 's/wine-staging//;s/wine-staging-32bit//')
+                        fi
+                        
+                        # Special handling for winetricks
+                        if command_exists "winetricks"; then
+                            if rpm -q winetricks &>/dev/null; then
+                                print_message "blue" "Removing winetricks package..."
+                                sudo zypper remove -y winetricks || print_message "red" "Failed to remove winetricks package."
+                            else
+                                print_message "blue" "Removing winetricks installed from GitHub..."
+                                sudo rm -f /usr/bin/winetricks
+                                sudo rm -f /usr/share/bash-completion/completions/winetricks
+                                sudo rm -f /usr/share/man/man1/winetricks.1
+                                print_message "green" "✓ Winetricks removed"
+                            fi
+                            # Update the package list
+                            INSTALLED_PKGS=$(echo "$INSTALLED_PKGS" | sed 's/winetricks//')
+                        fi
+                        
+                        # Remove remaining packages
+                        if [ -n "$INSTALLED_PKGS" ]; then
+                            print_message "blue" "Removing packages: $INSTALLED_PKGS"
+                            sudo zypper remove -y $INSTALLED_PKGS || print_message "red" "Failed to remove some packages."
+                        fi
+                        
+                        # Clean up unused dependencies
+                        print_message "blue" "Cleaning up unused dependencies..."
+                        sudo zypper clean -a
+                    fi
+                else
+                    print_message "yellow" "No packages from our list are currently installed."
+                fi
+            else
+                print_message "yellow" "Package list not found. Cannot remove packages."
+            fi
             ;;
             
         *)
