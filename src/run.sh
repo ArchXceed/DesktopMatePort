@@ -30,7 +30,7 @@ else
 fi
 
 
-cd ./backend
+cd ../backend
 rm server_started.txt
 # Open a window selector and pass the selected window size as argument
 monitor_info=$(xrandr --query | grep " connected" | awk '{print $1}')
@@ -102,12 +102,12 @@ if [ -n "$window_id" ]; then
 else
     echo "Wine Desktop window not found"
 fi
-bash ../dskmptricks/scripts/disable_hide_kde.sh
-bash ../dskmptricks/scripts/show.sh
+bash ../src/dskmptricks/scripts/disable_hide_kde.sh
+bash ../src/dskmptricks/scripts/show.sh
 notify-send "Press [ENTER] on the terminal when DesktopMate is showed up (the black window in wine)"
 read -p "Enter when DesktopMate is running: "
-bash ../dskmptricks/scripts/enable_hide_kde.sh
-bash ../dskmptricks/scripts/hide.sh
+bash ../src/dskmptricks/scripts/enable_hide_kde.sh
+bash ../src/dskmptricks/scripts/hide.sh
 wmctrl -r "shell - Wine Desktop" -b add,below
 wine explorer /desktop=shell,$window_size python ./windows_server.py > /dev/null 2>&1 &
 wine explorer /desktop=shell,$window_size mouse_block.exe > /dev/null 2>&1 &
@@ -122,7 +122,7 @@ while [ ! -f server_started.txt ]; do
 done
 sleep 4
 
-cd ../frontend
+cd ../../frontend
 
 if [ -n "$2" ]; then
     env="$2"
