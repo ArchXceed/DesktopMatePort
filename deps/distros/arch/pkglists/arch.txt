@@ -1,0 +1,29 @@
+# Arch Linux packages required for DesktopMatePort
+python
+python-pip
+python-pyqt5
+python-pyqtwebengine
+qt5-base
+qt5-wayland
+wayland
+libxkbcommon
+gcc
+make
+cmake
+git
+wget
+curl
+xdg-utils
+libx11
+libxrandr
+libxinerama
+libxcursor
+libxi
+# Packages from README
+winetricks
+wine-staging
+zenity
+tk
+wmctrl
+# AUR package
+limitcpu 

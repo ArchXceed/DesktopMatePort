@@ -1,0 +1,35 @@
+# Required packages for DesktopMatePort on Debian/Ubuntu
+# Core dependencies
+winehq-staging
+python3
+zenity
+wget
+wmctrl
+cpulimit
+
+# Graphics and desktop integration
+mesa-utils
+mesa-vulkan-drivers
+vulkan-tools
+xdg-utils
+
+# Audio support
+pulseaudio
+pulseaudio-utils
+
+# Development tools (needed for some operations)
+build-essential
+git
+
+# KDE integration (for KDE users)
+libkf5windowsystem5
+libkf5wayland-dev
+
+# Wayland support
+libwayland-dev
+wayland-protocols
+
+# Additional dependencies for better compatibility
+cabextract
+p7zip-full
+unzip 
