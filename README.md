@@ -55,13 +55,13 @@ Contributions to DesktopMatePort are welcome and appreciated! If you'd like to i
 
 ## Licenses
 - This source is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-- The scripts are licensed under the GPLv3 License - see the [LICENSE-GPLv3](LICENSE-GPLv3) file for details.
+- The installation shell scripts are licensed under the GPLv3 License - see the [LICENSE-GPLv3](LICENSE-GPLv3) file for details.
 
 ## AI?
 Yes, some of the files are made with the help of AI. But a lot of debugging is made by us :)
 
 ## Credits
-Scripts are made by OpenSource Guy
+Installation Shell Scripts are made by OpenSource Guy.
 
 ## Message from the author and contributors
 Author: `Miku!`
