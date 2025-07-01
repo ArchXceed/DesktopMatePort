@@ -53,9 +53,9 @@ Contributions to DesktopMatePort are welcome and appreciated! If you'd like to i
 - Sharing your experience using the port on different distributions
 - Documenting additional configurations or solutions
 
-## License
-This source is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-The scripts are licensed under the GPLv3 License - see the [LICENSE](LICENSE-GPLv3) file for details.
+## Licenses
+- This source is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- The scripts are licensed under the GPLv3 License - see the [LICENSE-GPLv3](LICENSE-GPLv3) file for details.
 
 ## AI?
 Yes, some of the files are made with the help of AI. But a lot of debugging is made by us :)
