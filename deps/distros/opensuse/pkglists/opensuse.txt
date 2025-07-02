@@ -1,0 +1,39 @@
+# Required packages for DesktopMatePort on openSUSE
+# Core dependencies
+wine-staging
+wine-staging-32bit
+winetricks
+python3
+zenity
+wget
+wmctrl
+cpulimit
+
+# Graphics and desktop integration
+Mesa-dri
+libvulkan1
+vulkan-tools
+xdg-utils
+
+# Audio support
+pulseaudio
+pulseaudio-utils
+
+# Development tools (needed for some operations)
+gcc
+gcc-c++
+make
+git
+
+# KDE integration (for KDE users)
+libKF5WindowSystem5
+kwayland-devel
+
+# Wayland support
+wayland-devel
+wayland-protocols-devel
+
+# Additional dependencies for better compatibility
+cabextract
+7zip
+unzip 

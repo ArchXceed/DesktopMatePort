@@ -1,0 +1,40 @@
+# Required packages for DesktopMatePort on Fedora
+# Core dependencies
+winehq-staging
+python3
+zenity
+wget
+wmctrl
+cpulimit
+
+# Graphics and desktop integration
+mesa-dri-drivers
+vulkan-loader
+vulkan-tools
+vulkan-validation-layers
+xdg-utils
+
+# Audio support
+pipewire-alsa
+pipewire-pulseaudio
+alsa-plugins-pulseaudio
+
+# Development tools (needed for some operations)
+gcc
+gcc-c++
+make
+git
+
+# KDE integration (for KDE users)
+kf5-kwindowsystem
+kf5-kwayland
+
+# Wayland support
+wayland-devel
+wayland-protocols-devel
+
+# Additional dependencies for better compatibility
+cabextract
+p7zip
+p7zip-plugins
+unzip 
