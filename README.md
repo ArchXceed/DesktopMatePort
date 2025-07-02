@@ -1,5 +1,4 @@
 # DesktopMatePort
-# Forked version for WAY easier installation: https://github.com/os-guy/DesktopMatePort
 ## Run DesktopMate (steam) on KDE or Hyprland!
 DesktopMatePort is a project that enables running DesktopMate, a Steam application, on KDE Plasma or Hyprland window managers. This port provides compatibility for Linux desktop environments where the application may not natively function properly.
 
@@ -66,4 +65,5 @@ Installation Shell Scripts are made by OpenSource Guy.
 
 ## Message from the author and contributors
 Author: `Miku!`
+
 OSGuy: `i use arch btw`
