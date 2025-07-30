@@ -100,16 +100,21 @@ print_message "green" "Installed DesktopMate PORT!"
 
 cd ..
 
+if confirm "Would you like to delete old shortcuts ? (If you upgraded, type YES)"; then
+    print_message "blue" "Deleting old shortcuts..."
+    rm ~/.local/share/applications/Desktopmate*
+fi
+
 if confirm "Would you like to create the shortcut for KDE (input)?"; then
     print_message "blue" "Creating KDE shortcut..."
-    echo -e "[Desktop Entry]\n# Created by desktopfilecreator.com\nType=Application\nVersion=1.0\nName=DesktopMate [KDE]\nComment=DesktopMate - Linux Port\nPath=$(pwd)\nExec=$(pwd)/src/run.sh 20\nTerminal=true\n" > ~/.local/share/applications/Desktopmate[kde].desktop
+    echo -e "[Desktop Entry]\n# Created by desktopfilecreator.com\nType=Application\nVersion=1.0\nName=DesktopMate [KDE]\nComment=DesktopMate - Linux Port\nPath=$(pwd)/src\nExec=$(pwd)/src/run.sh 20\nTerminal=true\n" > ~/.local/share/applications/Desktopmatekde.desktop
 else
     print_message "yellow" "Skipping shortcut creation."
 fi
 
 if confirm "Would you like to create the shortcut for Hyprland (input)?"; then
     print_message "blue" "Creating Hyprland shortcut..."
-    echo -e "[Desktop Entry]\n# Created by desktopfilecreator.com\nType=Application\nVersion=1.0\nName=DesktopMate [Hyprland]\nComment=DesktopMate - Linux Port (Hyprland)\nPath=$(pwd)\nExec=$(pwd)/src/run.sh 20 hyprland\nTerminal=true\n" > ~/.local/share/applications/Desktopmate[hyprland].desktop 
+    echo -e "[Desktop Entry]\n# Created by desktopfilecreator.com\nType=Application\nVersion=1.0\nName=DesktopMate [Hyprland]\nComment=DesktopMate - Linux Port (Hyprland)\nPath=$(pwd)/src\nExec=$(pwd)/src/run.sh 20 hyprland\nTerminal=true\n" > ~/.local/share/applications/Desktopmatehyprland.desktop 
 else
     print_message "yellow" "Skipping shortcut creation."
 fi
@@ -121,7 +126,7 @@ fi
 
 if confirm "Do you want to install the desktopmateport tricks? [recommended]?"; then
     print_message "blue" "Installing desktopmate tricks desktop shortcut"
-    echo -e "[Desktop Entry]\n# Created by desktopfilecreator.com\nType=Application\nVersion=1.0\nName=DesktopMatePort TRICKS\nComment=Created by desktopfilecreator.com\nPath=$(pwd)/dskmptricks/\nExec=python3 main.py\nTerminal=false\n" > ~/.local/share/applications/DesktopmateportTricks.desktop
+    echo -e "[Desktop Entry]\n# Created by desktopfilecreator.com\nType=Application\nVersion=1.0\nName=DesktopMatePort TRICKS\nComment=Created by desktopfilecreator.com\nPath=$(pwd)/src/dskmptricks/\nExec=python3 main.py\nTerminal=false\n" > ~/.local/share/applications/DesktopmateportTricks.desktop
 fi
 
 print_message "green" "Setup completed successfully!"
