@@ -1,4 +1,5 @@
 # DesktopMatePort
+# THIS PROJECT IS (I think) "CRAP", I'll no longer maintain it, or if I update it, I'll restart from scratch in a new repo. For now, consider alternatives
 ## Run DesktopMate (steam) on KDE or Hyprland!
 DesktopMatePort is a project that enables running DesktopMate, a Steam application, on KDE Plasma or Hyprland window managers. This port provides compatibility for Linux desktop environments where the application may not natively function properly.
 
